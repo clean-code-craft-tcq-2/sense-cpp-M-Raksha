@@ -5,13 +5,21 @@
 Stats Statistics::ComputeStatistics(const std::vector<float>&vect ) {
     Stats Calcualtion;
     float sum = 0.0f;
-    for (int i=0; i<vect.size(); i++)
+    if(vect.empty())
     {
-        sum = sum+vect[i];
+        Calcualtion.Avg = NAN;
+        Calcualtion.Min= NAN;
+        Calcualtion.Max =NAN;
     }
-    Calcualtion.average = sum/vect.size();
-    Calcualtion.min=*min_element(vect.begin(), vect.end());
-    Calcualtion.max =*max_element(vect.begin(), vect.end());
-    
+    else
+    {
+        for (int i=0; i<vect.size(); i++)
+        {
+            sum = sum+vect[i];
+        }
+        Calcualtion.Avg = sum/vect.size();
+        Calcualtion.Min=*min_element(vect.begin(), vect.end());
+        Calcualtion.Max =*max_element(vect.begin(), vect.end());
+    }
     return Calcualtion;
 }
