@@ -7,9 +7,9 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&vect ) {
     float sum = 0.0f;
     if(vect.empty())
     {
-        Calcualtion.Avg = NAN;
-        Calcualtion.Min= NAN;
-        Calcualtion.Max =NAN;
+        Calcualtion.average  = NAN;
+        Calcualtion.min= NAN;
+        Calcualtion.max =NAN;
     }
     else
     {
@@ -17,9 +17,9 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&vect ) {
         {
             sum = sum+vect[i];
         }
-        Calcualtion.Avg = sum/vect.size();
-        Calcualtion.Min=*min_element(vect.begin(), vect.end());
-        Calcualtion.Max =*max_element(vect.begin(), vect.end());
+        Calcualtion.average = sum/vect.size();
+        Calcualtion.min=*std::min_element(vect.begin(), vect.end());
+        Calcualtion.max =*std::max_element(vect.begin(), vect.end());
     }
     return Calcualtion;
 }
