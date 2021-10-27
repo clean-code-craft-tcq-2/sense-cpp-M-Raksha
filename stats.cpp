@@ -23,3 +23,23 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&vect ) {
     }
     return Calcualtion;
 }
+
+StatsAlerter::StatsAlerter(float Threshold,std::vector<IAlerter*>&Alert)
+    {
+        Threshold_local = Threshold;
+        Alert_local = Alert;
+    }
+    
+ void StatsAlerter::checkAndAlert(const std::vector<float>&vect) 
+    {
+        if(*std::min_element(vect.begin(), vect.end()))
+        {
+            Alert_local[0]->emailSent = 1;
+            Alert_local[1]->ledGlows =1;
+        }
+        else
+        {
+        Alert_local[0]->emailSent = 0;
+        Alert_local[1]->ledGlows =0;
+        }
+    }
