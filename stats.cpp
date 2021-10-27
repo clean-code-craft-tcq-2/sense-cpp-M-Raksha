@@ -13,11 +13,11 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&vect ) {
     }
     else
     {
-        for (int i=0; i<vect.size(); i++)
+        for (int i=0; i<(int)vect.size(); i++)
         {
             sum = sum+vect[i];
         }
-        Calcualtion.average = sum/vect.size();
+        Calcualtion.average = sum/(float)vect.size();
         Calcualtion.min=*std::min_element(vect.begin(), vect.end());
         Calcualtion.max =*std::max_element(vect.begin(), vect.end());
     }
